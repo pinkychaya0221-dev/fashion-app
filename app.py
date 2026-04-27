@@ -115,7 +115,7 @@ image_name = f"{season_map[season]}_{gender_map[gender]}_{style_map[style]}.jpg"
 # コーデ提案
 def recommend_outfit(season, gender, style):
 
-    advice_dict =
+    advice_dict = {
         ("春", "ビジネスカジュアル"): "春らしい軽めのジャケットを取り入れたビジネスカジュアルがおすすめです。",
         ("春", "オフィスカジュアル"): "春らしく柔らかい印象のオフィスカジュアルがおすすめです。",
         ("夏", "ビジネスカジュアル"): "夏向けの涼しいビジネスカジュアルがおすすめです。",
@@ -124,6 +124,7 @@ def recommend_outfit(season, gender, style):
         ("秋", "オフィスカジュアル"): "秋らしい柔らかな雰囲気のオフィスカジュアルがおすすめです。",
         ("冬", "ビジネスカジュアル"): "暖かさを重視した冬のビジネスカジュアルがおすすめです。",
         ("冬", "オフィスカジュアル"): "暖かく上品な冬のオフィスカジュアルがおすすめです。"
+    }
 
 # 中央寄せ
 left, center, right = st.columns([1,3,1])
