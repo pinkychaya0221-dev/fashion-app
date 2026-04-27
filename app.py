@@ -113,7 +113,7 @@ emoji = {"春": "🌸", "夏": "🌻", "秋": "🍁", "冬": "❄️"}
 image_name = f"{season_map[season]}_{gender_map[gender]}_{style_map[style]}.jpg"
 
 # コーデ提案
-def recommend_outfit(season, gender, style):
+def recommend_outfit(gender, season, style):
 
     advice_dict = {
         ("春", "ビジネスカジュアル"): "春らしい軽めのジャケットを取り入れたビジネスカジュアルがおすすめです。",
