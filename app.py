@@ -125,6 +125,8 @@ def recommend_outfit(season, gender, style):
         ("冬", "ビジネスカジュアル"): "暖かさを重視した冬のビジネスカジュアルがおすすめです。",
         ("冬", "オフィスカジュアル"): "暖かく上品な冬のオフィスカジュアルがおすすめです。"
     }
+      # スタイル名を英語に変換
+    style_code = "business" if style == "ビジネスカジュアル" else "office"
 
 # 中央寄せ
 left, center, right = st.columns([1,3,1])
