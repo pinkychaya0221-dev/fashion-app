@@ -235,7 +235,6 @@ audio = elevenlabs.text_to_speech.convert(
   
 voice_id
 =
-"
 3JDquces8E8bkmvbh6Bc
 
 Otani
