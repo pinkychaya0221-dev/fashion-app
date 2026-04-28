@@ -3,7 +3,7 @@ import os
 
 st.set_page_config(page_title="Luxury Style Selector", layout="wide")
 
-st.markdown(""
+st.markdown("""
 <style>
 
 /* ヘッダー */
