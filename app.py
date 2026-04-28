@@ -6,11 +6,6 @@ st.set_page_config(page_title="Luxury Style Selector", layout="wide")
 st.markdown("""
 <style>
 
-/* 背景（グラデーション強化） */
-.stApp {
-    background: linear-gradient(120deg, #fceabb 0%, #f8b500 30%, #fddb92 60%, #d1fdff 100%);
-}
-
 /* ヘッダー */
 .header {
     text-align: center;
@@ -87,6 +82,26 @@ with col1:
 
 with col2:
     season = st.selectbox("季節", ["春", "夏", "秋", "冬"])
+
+def get_background(season):
+    if season == "春":
+        return "linear-gradient(120deg, #ffe4ec 0%, #fff0f5 40%, #e8f5e9 100%)"
+    elif season == "夏":
+        return "linear-gradient(120deg, #d1f7ff 0%, #87ceeb 40%, #fffacd 100%)"
+    elif season == "秋":
+        return "linear-gradient(120deg, #fff3cd 0%, #d2691e 45%, #8b4513 100%)"
+    elif season == "冬":
+        return "linear-gradient(120deg, #e0f7fa 0%, #e6e6fa 45%, #b0c4de 100%)"
+
+bg = get_background(season)
+
+st.markdown(f"""
+<style>
+.stApp {{
+    background: {bg} !important;
+}}
+</style>
+""", unsafe_allow_html=True)
 
 with col3:
     style = st.selectbox("スタイル", ["オフィスカジュアル", "ビジネスカジュアル"])
