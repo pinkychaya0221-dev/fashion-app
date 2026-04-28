@@ -180,6 +180,48 @@ comment_map = {
     ("winter", "women", "business"): "ニット＋コートで上品な防寒ビジカジ。シルエット重視でスタイルアップ。",
 }
 
+import random
+import base64
+
+music_folder = "music"
+
+if not os.path.exists(music_folder):
+    st.error("musicフォルダがありません")
+else:
+    music_files = [
+        f for f in os.listdir(music_folder)
+        if f.endswith((".mp3", ".wav"))
+    ]
+
+    if not music_files:
+        st.warning("音楽ファイルがありません")
+    else:
+        # 初回だけランダム選曲
+        if "selected_music" not in st.session_state:
+            st.session_state.selected_music = random.choice(music_files)
+
+        selected_music = st.session_state.selected_music
+        music_path = os.path.join(music_folder, selected_music)
+
+        # base64変換
+        with open(music_path, "rb") as f:
+            audio_bytes = f.read()
+            audio_base64 = base64.b64encode(audio_bytes).decode()
+
+        # 音量30%で自動再生
+        audio_html = f"""
+        <audio id="bgm" autoplay loop>
+            <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
+        </audio>
+
+        <script>
+            const audio = document.getElementById("bgm");
+            audio.volume = 0.3;
+        </script>
+        """
+
+        st.markdown(audio_html, unsafe_allow_html=True)
+
 # 中央寄せ
 left, center, right = st.columns([1,3,1])
 
