@@ -61,7 +61,7 @@ st.markdown("""
 st.markdown("""
 <div class="header">
     <div class="title">👔Style Navi</div>
-    <div class="subtitle">あなたに最適なコーデを一瞬で提案</div>
+    <div class="subtitle">あなたに最適なコーデを瞬時に提案</div>
 </div>
 """, unsafe_allow_html=True)
 
