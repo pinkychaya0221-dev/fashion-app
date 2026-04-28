@@ -131,8 +131,6 @@ comment_map = {
 import random
 import base64
 
-st.title("BGM付きページ")
-
 music_folder = "music"
 
 if not os.path.exists(music_folder):
