@@ -189,6 +189,8 @@ comment_map = {
 import random
 import base64
 
+st.title("BGM付きページ")
+
 music_folder = "music"
 
 if not os.path.exists(music_folder):
@@ -202,24 +204,20 @@ else:
     if not music_files:
         st.warning("音楽ファイルがありません")
     else:
-        # 初回だけランダム選曲
         if "selected_music" not in st.session_state:
             st.session_state.selected_music = random.choice(music_files)
 
         selected_music = st.session_state.selected_music
         music_path = os.path.join(music_folder, selected_music)
 
-        # base64変換
         with open(music_path, "rb") as f:
             audio_bytes = f.read()
             audio_base64 = base64.b64encode(audio_bytes).decode()
 
-        # 音量30%で自動再生
         audio_html = f"""
-        <audio id="bgm" autoplay loop>
+        <audio autoplay loop onloadeddata="this.volume=0.2">
             <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
-          <audio autoplay loop onloadeddata="this.volume=0.2">
-              </audio>
+        </audio>
         """
 
         st.markdown(audio_html, unsafe_allow_html=True)
