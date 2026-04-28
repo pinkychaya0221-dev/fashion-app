@@ -179,42 +179,60 @@ comment_map = {
     ("winter", "women", "business"): "ニット＋コートで上品な防寒ビジカジ。シルエット重視でスタイルアップ。",
 }
 
-import random
 import base64
+import random
 
+st.title("BGM選択デモ")
+
+# 音楽ファイルのフォルダ
 music_folder = "music"
 
-if not os.path.exists(music_folder):
-    st.error("musicフォルダがありません")
-else:
-    music_files = [
-        f for f in os.listdir(music_folder)
-        if f.endswith((".mp3", ".wav"))
-    ]
+# セッション状態で再生フラグを管理
+if "play_music" not in st.session_state:
+    st.session_state.play_music = None
 
-    if not music_files:
-        st.warning("音楽ファイルがありません")
-    else:
-        # 初回だけランダム選曲
-        if "selected_music" not in st.session_state:
-            st.session_state.selected_music = random.choice(music_files)
+# 初回のみ選択画面を表示
+if st.session_state.play_music is None:
+    st.subheader("BGMを再生しますか？")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("再生する"):
+            st.session_state.play_music = True
+            st.rerun()
+    with col2:
+        if st.button("再生しない"):
+            st.session_state.play_music = False
+            st.rerun()
 
-        selected_music = st.session_state.selected_music
+# 再生する場合
+elif st.session_state.play_music:
+    st.success("BGM再生中♪")
+
+    music_files = [f for f in os.listdir(music_folder) if f.endswith((".mp3", ".wav"))]
+
+    if music_files:
+        selected_music = random.choice(music_files)
         music_path = os.path.join(music_folder, selected_music)
 
-        # 音楽ファイルをbase64変換
         with open(music_path, "rb") as f:
             audio_bytes = f.read()
-            audio_base64 = base64.b64encode(audio_bytes).decode()
 
-        # 自動再生（プレイヤー非表示）
+        b64 = base64.b64encode(audio_bytes).decode()
+
         audio_html = f"""
         <audio autoplay loop>
-            <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
+            <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
         </audio>
         """
 
         st.markdown(audio_html, unsafe_allow_html=True)
+    else:
+        st.warning("musicフォルダに音楽ファイルがありません")
+
+# 再生しない場合
+else:
+    st.info("BGMは再生しません")
 
 # 中央寄せ
 left, center, right = st.columns([1,3,1])
