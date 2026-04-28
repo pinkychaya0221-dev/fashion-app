@@ -12,7 +12,8 @@ st.markdown("""
     text-align: center;
     padding: 50px 20px;
     color: white;
-    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    background: rgba(255,255,255,0.2);
+backdrop-filter: blur(10px);
     border-radius: 30px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     margin-bottom: 30px;
@@ -22,11 +23,13 @@ st.markdown("""
     font-size: 50px;
     font-weight: 900;
     letter-spacing: 2px;
+    color: #555;
 }
 
 .subtitle {
     font-size: 18px;
     opacity: 0.9;
+    color: #555;
 }
 
 /* タイトル */
