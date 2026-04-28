@@ -173,6 +173,8 @@ image_name = f"{season_map[season]}_{gender_map[gender]}_{style_map[style]}.jpg"
 comment_map = {
     ("spring", "men", "office"): "春らしい軽やかなジャケットスタイル。清潔感と柔らかさを両立した好印象コーデ。",
     ("spring", "men", "business"): "明るめシャツで季節感を出したビジネスカジュアル。初対面でも好印象。",
+    ("spring", "women", "office"): "春のやわらかい空気にぴったりの軽やかコーデ。",
+    ("spring", "women", "business"): "春らしい抜け感で自然体に仕上がる着こなし。",
     
     ("summer", "men", "office"): "通気性重視の爽やかオフィススタイル。ジャケットは軽量素材がおすすめ。",
     ("summer", "men", "business"): "シャツ1枚でも成立する涼しげなビジカジ。シンプルで清潔感重視。",
