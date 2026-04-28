@@ -181,7 +181,6 @@ comment_map = {
 }
 
 import streamlit as st
-from streamlit_modal import Modal
 import os
 import base64
 import random
