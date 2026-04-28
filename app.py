@@ -95,7 +95,7 @@ def get_animation_html(season):
     if season == "春":
         icon = "🌸"
     elif season == "夏":
-        icon = "🎆"
+        icon = "🍃"
     elif season == "秋":
         icon = "🍂"
     else:
