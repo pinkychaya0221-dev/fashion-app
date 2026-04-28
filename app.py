@@ -85,7 +85,7 @@ def get_background(season):
     elif season == "夏":
         return "linear-gradient(120deg, #d1f7ff 0%, #87ceeb 40%, #fffacd 100%)"
     elif season == "秋":
-        return "linear-gradient(120deg, #fdf6e3 0%, #D2B48C 50%, #D2B48C 100%)"
+        return "linear-gradient(120deg, #fff1e6 0%, #ffd6a5 50%, #ffad60 100%)"
     elif season == "冬":
         return "linear-gradient(120deg, #e0f7fa 0%, #e6e6fa 45%, #b0c4de 100%)"
 
