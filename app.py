@@ -38,13 +38,6 @@ st.markdown("""
     margin-bottom: 30px;
 }
 
-/* タイトル */
-.card-title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
 /* バッジ */
 .badge {
     display: inline-block;
