@@ -217,7 +217,7 @@ else:
 
         <script>
             const audio = document.getElementById("bgm");
-            audio.volume = 0.1;
+            this.volume = 0.1;
         </script>
         """
 
