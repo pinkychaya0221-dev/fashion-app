@@ -11,6 +11,17 @@ st.markdown("""
     background: linear-gradient(120deg, #fceabb 0%, #f8b500 30%, #fddb92 60%, #d1fdff 100%);
 }
 
+/* ヘッダー */
+.header {
+    text-align: center;
+    padding: 50px 20px;
+    color: white;
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    margin-bottom: 30px;
+}
+
 .title {
     font-size: 50px;
     font-weight: 900;
