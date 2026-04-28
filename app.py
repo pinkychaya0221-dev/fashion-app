@@ -182,33 +182,72 @@ comment_map = {
 import base64
 import random
 
-st.title("BGM選択デモ")
+st.set_page_config(page_title="BGMモーダル", layout="wide")
 
-# 音楽ファイルのフォルダ
 music_folder = "music"
 
-# セッション状態で再生フラグを管理
+# セッション状態
 if "play_music" not in st.session_state:
     st.session_state.play_music = None
 
-# 初回のみ選択画面を表示
+# ---------- 背景 ----------
+st.markdown("""
+<style>
+.modal-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.modal-box {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    text-align: center;
+    width: 420px;
+}
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ---------- モーダル ----------
 if st.session_state.play_music is None:
-    st.subheader("BGMを再生しますか？")
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        if st.button("再生する"):
+    st.markdown("""
+    <div class="modal-bg">
+        <div class="modal-box">
+            <div class="modal-title">BGMを再生しますか？</div>
+            <p>ページ閲覧中にBGMを流せます</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    col1, col2, col3 = st.columns([3,2,2])
+    with col2:
+        if st.button("▶ 再生する"):
             st.session_state.play_music = True
             st.rerun()
-    with col2:
-        if st.button("再生しない"):
+    with col3:
+        if st.button("✖ 再生しない"):
             st.session_state.play_music = False
             st.rerun()
 
-# 再生する場合
-elif st.session_state.play_music:
-    st.success("BGM再生中♪")
+# ---------- メイン画面 ----------
+st.title("メインページ")
+st.write("ここにサイトのメインコンテンツを表示")
 
+# ---------- BGM再生 ----------
+if st.session_state.play_music:
     music_files = [f for f in os.listdir(music_folder) if f.endswith((".mp3", ".wav"))]
 
     if music_files:
@@ -227,12 +266,6 @@ elif st.session_state.play_music:
         """
 
         st.markdown(audio_html, unsafe_allow_html=True)
-    else:
-        st.warning("musicフォルダに音楽ファイルがありません")
-
-# 再生しない場合
-else:
-    st.info("BGMは再生しません")
 
 # 中央寄せ
 left, center, right = st.columns([1,3,1])
