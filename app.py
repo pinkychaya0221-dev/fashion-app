@@ -96,12 +96,63 @@ def get_background(season):
 
 bg = get_background(season)
 
+def get_animation_html(season):
+    if season == "春":
+        icon = "🌸"
+    elif season == "夏":
+        icon = "🎆"
+    elif season == "秋":
+        icon = "🍂"
+    else:
+        icon = "❄️"
+
+    return f"""
+    <div class="season-animation">
+        <span>{icon}</span><span>{icon}</span><span>{icon}</span><span>{icon}</span>
+        <span>{icon}</span><span>{icon}</span><span>{icon}</span><span>{icon}</span>
+    </div>
+    """
+
+animation_html = get_animation_html(season)
+
 st.markdown(f"""
 <style>
 .stApp {{
     background: {bg} !important;
 }}
+
+.season-animation {{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}}
+
+.season-animation span {{
+    position: absolute;
+    top: -50px;
+    font-size: 32px;
+    animation: fall 8s linear infinite;
+}}
+
+.season-animation span:nth-child(1) {{ left: 5%; animation-delay: 0s; }}
+.season-animation span:nth-child(2) {{ left: 18%; animation-delay: 1s; }}
+.season-animation span:nth-child(3) {{ left: 30%; animation-delay: 2s; }}
+.season-animation span:nth-child(4) {{ left: 45%; animation-delay: 0.5s; }}
+.season-animation span:nth-child(5) {{ left: 60%; animation-delay: 1.5s; }}
+.season-animation span:nth-child(6) {{ left: 75%; animation-delay: 2.5s; }}
+.season-animation span:nth-child(7) {{ left: 88%; animation-delay: 3s; }}
+.season-animation span:nth-child(8) {{ left: 95%; animation-delay: 4s; }}
+
+@keyframes fall {{
+    0% {{ transform: translateY(-60px) rotate(0deg); opacity: 0; }}
+    10% {{ opacity: 1; }}
+    100% {{ transform: translateY(110vh) rotate(360deg); opacity: 0; }}
+}}
 </style>
+
+{animation_html}
 """, unsafe_allow_html=True)
 
 with col3:
