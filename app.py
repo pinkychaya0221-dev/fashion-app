@@ -126,6 +126,82 @@ st.markdown(f"""
 </style>
 """, unsafe_allow_html=True)
 
+def get_animation_html(season):
+    if season == "夏":
+        return """
+        <div class="fireworks">
+            <span>🎆</span><span>🎇</span><span>🎆</span>
+        </div>
+        """
+    else:
+        icon = {"春": "🌸", "秋": "🍂", "冬": "❄"}[season]
+        return f"""
+        <div class="floating">
+            <span>{icon}</span><span>{icon}</span><span>{icon}</span><span>{icon}</span>
+            <span>{icon}</span><span>{icon}</span><span>{icon}</span><span>{icon}</span>
+        </div>
+        """
+
+st.markdown(f"""
+<style>
+.floating {{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}}
+
+.floating span {{
+    position: absolute;
+    top: -50px;
+    font-size: 28px;
+    animation: fall 8s linear infinite;
+    opacity: 0.8;
+}}
+
+.floating span:nth-child(1) {{ left: 5%; animation-delay: 0s; }}
+.floating span:nth-child(2) {{ left: 15%; animation-delay: 1s; }}
+.floating span:nth-child(3) {{ left: 25%; animation-delay: 2s; }}
+.floating span:nth-child(4) {{ left: 40%; animation-delay: 0.5s; }}
+.floating span:nth-child(5) {{ left: 55%; animation-delay: 1.5s; }}
+.floating span:nth-child(6) {{ left: 70%; animation-delay: 2.5s; }}
+.floating span:nth-child(7) {{ left: 85%; animation-delay: 3s; }}
+.floating span:nth-child(8) {{ left: 95%; animation-delay: 4s; }}
+
+@keyframes fall {{
+    0% {{ transform: translateY(-50px) rotate(0deg); opacity: 0; }}
+    10% {{ opacity: 1; }}
+    100% {{ transform: translateY(110vh) rotate(360deg); opacity: 0; }}
+}}
+
+.fireworks {{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}}
+
+.fireworks span {{
+    position: absolute;
+    font-size: 42px;
+    animation: fireworks 2.5s ease-in-out infinite;
+}}
+
+.fireworks span:nth-child(1) {{ left: 20%; top: 20%; animation-delay: 0s; }}
+.fireworks span:nth-child(2) {{ left: 50%; top: 15%; animation-delay: 0.8s; }}
+.fireworks span:nth-child(3) {{ left: 75%; top: 25%; animation-delay: 1.6s; }}
+
+@keyframes fireworks {{
+    0% {{ transform: scale(0); opacity: 0; }}
+    40% {{ transform: scale(1.5); opacity: 1; }}
+    100% {{ transform: scale(0); opacity: 0; }}
+}}
+</style>
+
+{get_animation_html(season)}
+""", unsafe_allow_html=True)
+
 with col3:
     style = st.selectbox("スタイル", ["オフィスカジュアル", "ビジネスカジュアル"])
 
