@@ -180,11 +180,8 @@ comment_map = {
     ("winter", "women", "business"): "ニット＋コートで上品な防寒ビジカジ。シルエット重視でスタイルアップ。",
 }
 
-import os
 import random
 import base64
-
-st.title("BGM付きページ")
 
 music_folder = "music"
 
