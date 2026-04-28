@@ -55,28 +55,6 @@ st.markdown("""
     font-size: 14px;
 }
 
-import streamlit as st
-import random
-import os
-import base64
-
-music_folder = "music"
-music_files = [f for f in os.listdir(music_folder) if f.endswith(".mp3")]
-
-if st.button("ランダム再生"):
-    selected_music = random.choice(music_files)
-    audio_path = os.path.join(music_folder, selected_music)
-
-    with open(audio_path, "rb") as f:
-        audio_bytes = f.read()
-        b64 = base64.b64encode(audio_bytes).decode()
-
-    audio_html = f"""
-    <audio controls autoplay>
-        <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
-    </audio>
-    """
-
     st.markdown(audio_html, unsafe_allow_html=True)
 /* アニメーション */
 @keyframes fadeIn {
