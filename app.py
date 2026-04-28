@@ -153,7 +153,6 @@ st.markdown(f"""
 }}
 </style>
 
-{animation_html}
 """, unsafe_allow_html=True)
 
 with col3:
