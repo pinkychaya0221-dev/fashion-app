@@ -101,12 +101,12 @@ def get_animation_html(season):
     else:
         icon = "❄️"
 
-    return f"""
+    st.markdown(f"""
     <div class="season-animation">
         <span>{icon}</span><span>{icon}</span><span>{icon}</span><span>{icon}</span>
         <span>{icon}</span><span>{icon}</span><span>{icon}</span><span>{icon}</span>
     </div>
-    """
+    """, unsafe_allow_html=True)
 
 animation_html = get_animation_html(season)
 
@@ -121,7 +121,7 @@ st.markdown(f"""
     inset: 0;
     pointer-events: none;
     overflow: hidden;
-    z-index: 999;
+    z-index: 0;
 }}
 
 .season-animation span {{
@@ -148,8 +148,6 @@ st.markdown(f"""
 </style>
 
 """, unsafe_allow_html=True)
-
-components.html(animation_html, height=0)
 
 with col3:
     style = st.selectbox("スタイル", ["オフィスカジュアル", "ビジネスカジュアル"])
