@@ -60,7 +60,7 @@ st.markdown("""
 # ヘッダー
 st.markdown("""
 <div class="header">
-    <div class="title">✨ Style Navi ✨</div>
+    <div class="title">✨Style Navi✨</div>
     <div class="subtitle">あなたに最適なコーデを一瞬で提案</div>
 </div>
 """, unsafe_allow_html=True)
