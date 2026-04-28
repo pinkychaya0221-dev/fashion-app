@@ -220,50 +220,6 @@ else:
 
         st.markdown(audio_html, unsafe_allow_html=True)
 
-import
- os
-from
- elevenlabs.client 
-import
- ElevenLabs
-elevenlabs = ElevenLabs(
-api_key
-=os.getenv(
-"ELEVENLABS_API_KEY"
-))
-audio = elevenlabs.text_to_speech.convert(
-  
-voice_id
-=
-3JDquces8E8bkmvbh6Bc
-
-Otani
-"
-,
-  
-text
-=
-"
-古代のエルドリアの地、空が輝き、森が風に秘密をささやく場所に、ゼフィロスという名のドラゴンが住んでいました。[sarcastically] 「全部燃やし尽くす」タイプではなくて…[giggles] 彼は優しく、賢く、目はまるで古い星のようでした。[whispers] 彼が通ると鳥たちも静かになりました。
-"
-,
-  
-model_id
-=
-"eleven_v3"
-,
-  
-language_code
-=
-"
-ja
-
-Japanese
-"
-,
-)
-
-
 # 中央寄せ
 left, center, right = st.columns([1,3,1])
 
