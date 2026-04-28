@@ -116,6 +116,16 @@ def get_background(season):
     elif season == "冬":
         return "linear-gradient(120deg, #e0f7fa 0%, #e6e6fa 45%, #b0c4de 100%)"
 
+bg = get_background(season)
+
+st.markdown(f"""
+<style>
+.stApp {{
+    background: {bg} !important;
+}}
+</style>
+""", unsafe_allow_html=True)
+
 with col3:
     style = st.selectbox("スタイル", ["オフィスカジュアル", "ビジネスカジュアル"])
 
