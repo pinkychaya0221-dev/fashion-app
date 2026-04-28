@@ -126,30 +126,21 @@ st.markdown(f"""
 </style>
 """, unsafe_allow_html=True)
 
-def get_animation_html(season):
-    if season == "夏":
-        return """
-        <div class="fireworks">
-            <span>🎆</span><span>🎇</span><span>🎆</span>
-        </div>
-        """
-    else:
-        icon = {"春": "🌸", "秋": "🍂", "冬": "❄"}[season]
-        return f"""
-        <div class="floating">
-            <span>{icon}</span><span>{icon}</span><span>{icon}</span><span>{icon}</span>
-            <span>{icon}</span><span>{icon}</span><span>{icon}</span><span>{icon}</span>
-        </div>
-        """
+animation_html = get_animation_html(season)
+bg = get_background(season)
 
 st.markdown(f"""
 <style>
-.floating {{
+.stApp {{
+    background: {bg} !important;
+}}
+
+.floating, .fireworks {{
     position: fixed;
     inset: 0;
     pointer-events: none;
     overflow: hidden;
-    z-index: 0;
+    z-index: 999;
 }}
 
 .floating span {{
@@ -175,13 +166,6 @@ st.markdown(f"""
     100% {{ transform: translateY(110vh) rotate(360deg); opacity: 0; }}
 }}
 
-.fireworks {{
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-}}
-
 .fireworks span {{
     position: absolute;
     font-size: 42px;
@@ -199,7 +183,7 @@ st.markdown(f"""
 }}
 </style>
 
-{get_animation_html(season)}
+{animation_html}
 """, unsafe_allow_html=True)
 
 with col3:
