@@ -55,6 +55,29 @@ st.markdown("""
     font-size: 14px;
 }
 
+import streamlit as st
+import random
+import os
+
+st.title("ランダム音楽プレイヤー")
+
+# 音楽ファイルを入れたフォルダ
+music_folder = "music"
+
+# mp3一覧を取得
+music_files = [f for f in os.listdir(music_folder) if f.endswith(".mp3")]
+
+if music_files:
+    # ボタンを押したらランダム選曲
+    if st.button("ランダム再生"):
+        selected_music = random.choice(music_files)
+        st.write(f"再生中: {selected_music}")
+        
+        audio_path = os.path.join(music_folder, selected_music)
+        st.audio(audio_path)
+else:
+    st.write("musicフォルダにmp3ファイルを入れてください")
+
 /* アニメーション */
 @keyframes fadeIn {
     from {opacity: 0; transform: translateY(20px);}
