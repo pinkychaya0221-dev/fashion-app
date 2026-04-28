@@ -215,10 +215,7 @@ else:
             <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
         </audio>
 
-        <script>
-            const audio = document.getElementById("bgm");
-            this.volume = 0.5;
-        </script>
+      <audio autoplay loop onloadeddata="this.volume=0.2">
         """
 
         st.markdown(audio_html, unsafe_allow_html=True)
