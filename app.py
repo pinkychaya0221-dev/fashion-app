@@ -42,16 +42,6 @@ st.markdown("""
     margin-bottom: 30px;
 }
 
-/* 結果カード */
-.card {
-    background: linear-gradient(135deg, #ffffff, #f5f7fa);
-    padding: 30px;
-    border-radius: 30px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    text-align: center;
-    animation: fadeIn 1s ease-in-out;
-}
-
 /* タイトル */
 .card-title {
     font-size: 32px;
