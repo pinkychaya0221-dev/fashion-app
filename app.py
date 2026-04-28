@@ -154,6 +154,7 @@ st.markdown(f"""
 </style>
 
 """, unsafe_allow_html=True)
+
 components.html(animation_html, height=0)
 
 with col3:
