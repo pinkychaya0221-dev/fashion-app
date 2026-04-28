@@ -128,11 +128,10 @@ comment_map = {
     ("winter", "women", "business"): "ニット＋コートで上品な防寒ビジカジ。シルエット重視でスタイルアップ。",
 }
 
-import os
 import random
 import base64
 
-st.title("BGM自動ランダム再生")
+st.title("BGM付きページ")
 
 music_folder = "music"
 
@@ -147,20 +146,21 @@ else:
     if not music_files:
         st.warning("音楽ファイルがありません")
     else:
-        # ランダム選曲
-        selected_music = random.choice(music_files)
+        # 初回だけランダム選曲
+        if "selected_music" not in st.session_state:
+            st.session_state.selected_music = random.choice(music_files)
+
+        selected_music = st.session_state.selected_music
         music_path = os.path.join(music_folder, selected_music)
 
-        st.write(f"再生中: {selected_music}")
-
-        # 音楽ファイルをbase64化
+        # 音楽ファイルをbase64変換
         with open(music_path, "rb") as f:
             audio_bytes = f.read()
             audio_base64 = base64.b64encode(audio_bytes).decode()
 
-        # autoplayで自動再生
+        # 自動再生（プレイヤー非表示）
         audio_html = f"""
-        <audio autoplay controls>
+        <audio autoplay loop>
             <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
         </audio>
         """
