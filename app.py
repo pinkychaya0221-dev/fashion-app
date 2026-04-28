@@ -29,13 +29,11 @@ st.markdown("""
     opacity: 0.9;
 }
 
-/* 選択エリア */
-.selector {
-    background: rgba(255,255,255,0.85);
-    padding: 25px;
-    border-radius: 25px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    margin-bottom: 30px;
+/* タイトル */
+.card-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 /* バッジ */
