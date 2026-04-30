@@ -214,22 +214,18 @@ else:
     if clicked:
         st.session_state.play = True
 
-    with open(music_path, "rb") as f:
-        audio_bytes = f.read()
-        audio_base64 = base64.b64encode(audio_bytes).decode()
+    from pydub import AudioSegment
+    import io
 
     if st.session_state.play:
-        audio_html = f"""
-        <audio id="bgm" autoplay loop style="display:none;">
-            <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
-        </audio>
+        sound = AudioSegment.from_file(music_path)
+        sound = sound - 15  # 音量調整（-10〜-25で調整OK）
 
-        <script>
-        const audio = document.getElementById("bgm");
-        audio.volume = 0.2;  // 
-        </script>
-        """
-        st.markdown(audio_html, unsafe_allow_html=True)
+        buf = io.BytesIO()
+        sound.export(buf, format="mp3")
+        audio_bytes = buf.getvalue()
+
+        st.audio(audio_bytes)
 
 # 中央寄せ
 left, center, right = st.columns([1,3,1])
