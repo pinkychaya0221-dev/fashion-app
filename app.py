@@ -211,15 +211,15 @@ else:
             audio_base64 = base64.b64encode(audio_bytes).decode()
 
        audio_html = f"""
-<audio id="bgm" autoplay loop>
-    <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
-</audio>
+　　　　<audio id="bgm" autoplay loop>
+   　　 <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
+　　　　</audio>
 
-<script>
-const audio = document.getElementById("bgm");
-audio.volume = 0.2;
-</script>
-"""
+　　　　<script>
+　　　　const audio = document.getElementById("bgm");
+　　　　audio.volume = 0.2;
+　　　　</script>
+　　　　"""
 
         st.markdown(audio_html, unsafe_allow_html=True)
 
