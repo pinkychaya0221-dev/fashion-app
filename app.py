@@ -209,7 +209,7 @@ else:
     if "play" not in st.session_state:
         st.session_state.play = False
 
-    clicked = st.button("BGMスタート", key="start_btn")
+    clicked = st.button("🔈", key="start_btn")
 
     if clicked:
         st.session_state.play = True
