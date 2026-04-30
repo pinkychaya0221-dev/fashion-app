@@ -220,9 +220,14 @@ else:
 
     if st.session_state.play:
         audio_html = f"""
-        <audio autoplay loop style="display:none;">
+        <audio id="bgm" autoplay loop style="display:none;">
             <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
         </audio>
+
+        <script>
+        const audio = document.getElementById("bgm");
+        audio.volume = 0.2;  // 
+        </script>
         """
         st.markdown(audio_html, unsafe_allow_html=True)
 
