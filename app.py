@@ -206,26 +206,17 @@ else:
         selected_music = st.session_state.selected_music
         music_path = os.path.join(music_folder, selected_music)
 
-    if "play" not in st.session_state:
-        st.session_state.play = False
+        with open(music_path, "rb") as f:
+            audio_bytes = f.read()
+            audio_base64 = base64.b64encode(audio_bytes).decode()
 
-    clicked = st.button("🔈", key="start_btn")
+            audio_html = f"""
+            <audio autoplay loop onloadeddata="this.volume=0.2">
+                <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
+            </audio>
+            """
 
-    if clicked:
-        st.session_state.play = True
-
-    from pydub import AudioSegment
-    import io
-
-    if st.session_state.play:
-        sound = AudioSegment.from_file(music_path)
-        sound = sound - 15  # 音量調整（-10〜-25で調整OK）
-
-        buf = io.BytesIO()
-        sound.export(buf, format="mp3")
-        audio_bytes = buf.getvalue()
-
-        st.audio(audio_bytes)
+            st.markdown(audio_html, unsafe_allow_html=True)
 
 # 中央寄せ
 left, center, right = st.columns([1,3,1])
