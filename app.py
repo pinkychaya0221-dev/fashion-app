@@ -184,39 +184,48 @@ comment_map = {
     ("winter", "women", "business"): "淡色にダークカラーを合わせメリハリのあるビジネススタイル。",
 }
 
-import random
+import streamlit as st
+import os
 import base64
 
 music_folder = "music"
 
-if not os.path.exists(music_folder):
-    st.error("musicフォルダがありません")
-else:
-    music_files = [
-        f for f in os.listdir(music_folder)
-        if f.endswith((".mp3", ".wav"))
-    ]
+if os.path.exists(music_folder):
 
-    if not music_files:
-        st.warning("音楽ファイルがありません")
-    else:
+    music_files = [f for f in os.listdir(music_folder) if f.endswith((".mp3", ".wav"))]
+
+    if music_files:
+
         if "selected_music" not in st.session_state:
             st.session_state.selected_music = random.choice(music_files)
 
+        if "mute" not in st.session_state:
+            st.session_state.mute = False
+
         selected_music = st.session_state.selected_music
         music_path = os.path.join(music_folder, selected_music)
+
+        # ミュートボタン
+        if st.button("🔇 ミュート切替"):
+            st.session_state.mute = not st.session_state.mute
 
         with open(music_path, "rb") as f:
             audio_bytes = f.read()
             audio_base64 = base64.b64encode(audio_bytes).decode()
 
-            audio_html = f"""
-            <audio autoplay loop onloadeddata="this.volume=0.2">
-                <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
-            </audio>
-            """
+        # ミュート制御
+        if st.session_state.mute:
+            audio_tag = "controls muted"
+        else:
+            audio_tag = "autoplay loop"
 
-            st.markdown(audio_html, unsafe_allow_html=True)
+        audio_html = f"""
+        <audio {audio_tag} style="display:none;">
+            <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
+        </audio>
+        """
+
+        st.markdown(audio_html, unsafe_allow_html=True)
 
 # 中央寄せ
 left, center, right = st.columns([1,3,1])
