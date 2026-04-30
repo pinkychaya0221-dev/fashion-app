@@ -206,18 +206,25 @@ else:
         selected_music = st.session_state.selected_music
         music_path = os.path.join(music_folder, selected_music)
 
-        with open(music_path, "rb") as f:
-            audio_bytes = f.read()
-            audio_base64 = base64.b64encode(audio_bytes).decode()
+    if "play" not in st.session_state:
+        st.session_state.play = False
 
-            file_type = "mp3" if selected_music.endswith(".mp3") else "wav"
+    clicked = st.button("BGMスタート", key="start_btn")
 
-            audio_html = f"""
-            <audio controls loop>
-                <source src="data:audio/{file_type};base64,{audio_base64}" type="audio/{file_type}">
-            </audio>
-            """
-            st.markdown(audio_html, unsafe_allow_html=True)
+    if clicked:
+        st.session_state.play = True
+
+    with open(music_path, "rb") as f:
+        audio_bytes = f.read()
+        audio_base64 = base64.b64encode(audio_bytes).decode()
+
+    if st.session_state.play:
+        audio_html = f"""
+        <audio autoplay loop style="display:none;">
+            <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
+        </audio>
+        """
+        st.markdown(audio_html, unsafe_allow_html=True)
 
 # 中央寄せ
 left, center, right = st.columns([1,3,1])
