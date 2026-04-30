@@ -210,13 +210,13 @@ else:
             audio_bytes = f.read()
             audio_base64 = base64.b64encode(audio_bytes).decode()
 
-       audio_html = f"""
-       <audio id="bgm" autoplay loop onloadedmetadata="this.volume=0.2">
-           <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
-       </audio>
-       """
+            audio_html = f"""
+            <audio id="bgm" autoplay loop onloadedmetadata="this.volume=0.2">
+                <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
+            </audio>
+            """
 
-       st.markdown(audio_html, unsafe_allow_html=True)
+            st.markdown(audio_html, unsafe_allow_html=True)
 
 # 中央寄せ
 left, center, right = st.columns([1,3,1])
