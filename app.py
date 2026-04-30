@@ -211,7 +211,7 @@ else:
             audio_base64 = base64.b64encode(audio_bytes).decode()
 
        audio_html = f"""
-        <audio autoplay loop onloadeddata="this.volume=0.2">
+        <audio id="bgm" autoplay loop onloadedmetadata="this.volume=0.2">
             <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
         </audio>
         """
