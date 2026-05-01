@@ -163,13 +163,13 @@ emoji = {"春": "🌸", "夏": "🌻", "秋": "🍁", "冬": "❄️"}
 
 image_name = f"{season_map[season]}_{gender_map[gender]}_{style_map[style]}.jpg"
 comment_map = {
-    ("spring", "men", "office"): "春の空気に合う軽やかなコーデ。清潔感とやわらかさで好印象。参考ブランド（ユニクロ、GU、無印用品など）",
-    ("spring", "men", "business"): "落ち着いたカラーでまとめたビジネスカジュアル。初対面でも好印象。参考ブランド（ユニクロ、GU、無印用品、スーツ専門店など）",
+    ("spring", "men", "office"): "春の空気に合う軽やかなコーデ。清潔感とやわらかさで好印象。参考ブランド（ユニクロ、GU、無印用品、H&M、UNITED ARROWSなど）",
+    ("spring", "men", "business"): "落ち着いたカラーでまとめたビジネスカジュアル。初対面でも好印象。参考ブランド（ユニクロ、GU、無印用品、H&M、UNITED ARROWS、スーツ専門店など）",
     ("spring", "women", "office"): "春のやわらかい空気にぴったりの軽やかコーデ。参考ブランド（ユニクロ、GU、Honeys、GLOBAL WORKなど）",
     ("spring", "women", "business"): "春らしい抜け感で自然体に仕上がる着こなし。参考ブランド（ユニクロ、GU、スーツ専門店など）",
     
-    ("summer", "men", "office"): "軽やかな素材感でまとめたオフィスコーデ。暑い日でもすっきりとした印象に。",
-    ("summer", "men", "business"): "シンプルで整った印象のビジネスカジュアル。気温に合わせて調節しやすい着こなし。",
+    ("summer", "men", "office"): "軽やかな素材感でまとめたオフィスコーデ。暑い日でもすっきりとした印象に。参考ブランド（ユニクロ、GU、無印用品、H&M、UNITED ARROWSなど",
+    ("summer", "men", "business"): "シンプルで整った印象のビジネスカジュアル。気温に合わせて調節しやすい着こなし。参考ブランド（ユニクロ、GU、無印用品、H&M、UNITED ARROWS、スーツ専門店など）",
     ("summer", "women", "office"): "さらっと着れて見た目も爽やかなスタイル。",
     ("summer", "women", "business"): "やわらかな雰囲気でまとめた夏のビジネスカジュアル。清潔感のある上品な印象に。",
     
