@@ -37,6 +37,7 @@ backdrop-filter: blur(10px);
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: black; 
 }
 
 /* バッジ */
