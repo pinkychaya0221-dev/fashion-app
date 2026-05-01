@@ -245,6 +245,7 @@ st.markdown(f"""
     padding: 15px;
     border-radius: 15px;
     background: rgba(255,255,255,0.7);
+    color: black;
     font-size: 16px;
     line-height: 1.6;
 ">
