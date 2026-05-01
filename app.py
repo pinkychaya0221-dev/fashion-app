@@ -163,10 +163,10 @@ emoji = {"春": "🌸", "夏": "🌻", "秋": "🍁", "冬": "❄️"}
 
 image_name = f"{season_map[season]}_{gender_map[gender]}_{style_map[style]}.jpg"
 comment_map = {
-    ("spring", "men", "office"): "春の空気に合う軽やかなコーデ。清潔感とやわらかさで好印象。",
-    ("spring", "men", "business"): "落ち着いたカラーでまとめたビジネスカジュアル。初対面でも好印象。",
-    ("spring", "women", "office"): "春のやわらかい空気にぴったりの軽やかコーデ。",
-    ("spring", "women", "business"): "春らしい抜け感で自然体に仕上がる着こなし。",
+    ("spring", "men", "office"): "春の空気に合う軽やかなコーデ。清潔感とやわらかさで好印象。参考ブランド（ユニクロ、GU、無印用品など）",
+    ("spring", "men", "business"): "落ち着いたカラーでまとめたビジネスカジュアル。初対面でも好印象。参考ブランド（ユニクロ、GU、無印用品、スーツ店など）",
+    ("spring", "women", "office"): "春のやわらかい空気にぴったりの軽やかコーデ。参考ブランド（ユニクロ、GU、GLOBAL WORKなど）",
+    ("spring", "women", "business"): "春らしい抜け感で自然体に仕上がる着こなし。参考ブランド（ユニクロ、GU、スーツ店など）",
     
     ("summer", "men", "office"): "軽やかな素材感でまとめたオフィスコーデ。暑い日でもすっきりとした印象に。",
     ("summer", "men", "business"): "シンプルで整った印象のビジネスカジュアル。気温に合わせて調節しやすい着こなし。",
