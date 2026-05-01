@@ -176,8 +176,8 @@ comment_map = {
     
     ("autumn", "men", "office"): "深まりゆく季節に馴染む落ち着いた色味のオフィスカジュアル。参考ブランド(ユニクロ、GU、UNITED ARROWS、EDWINなど)",
     ("autumn", "men", "business"): "深みのある色合いでまとめたビジネスカジュアル。秋に映える落ち着いた着こなし。参考ブランド(ユニクロ、BEAMS、UNITED ARROWS、スーツ専門店など)",
-    ("autumn", "women", "office"): "落ち着きのある淡色で整える上品なオフィスカジュアル。参考ブランド(ユニクロ、GU、Honeys)",
-    ("autumn", "women", "business"): "落ち着きのある色味で仕上げた上品で柔らかな印象に。参考ブランド(ユニクロ、UNITED ARROWS、ZARA)",
+    ("autumn", "women", "office"): "落ち着きのある淡色で整える上品なオフィスカジュアル。参考ブランド(ユニクロ、GU、Honeysなど)",
+    ("autumn", "women", "business"): "落ち着きのある色味で仕上げた上品で柔らかな印象に。参考ブランド(ユニクロ、UNITED ARROWS、ZARAなど)",
 
     ("winter", "men", "office"): "上品に防寒するオフィスカジュアル。シルエットでスタイルアップ。参考ブランド（ユニクロ、無印良品、UNITED ARROWS、BEAMSなど）",
     ("winter", "men", "business"): "引き締まった色味で知的な印象に。冬らしいシックなカラーがポイント。参考ブランド（ユニクロ、BEAMS、UNITED　ARROWSなど）",
